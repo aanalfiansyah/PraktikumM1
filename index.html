@@ -3,152 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio | Aan Alfiansyah</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--light-gray);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .container {
+            width: 88%;
+            max-width: 1140px;
+            margin: auto;
         }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        /* HEADER & NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            z-index: 1000;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 75px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
+            gap: 25px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--gray);
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
 
         nav ul li a:hover {
-            color: #1abc9c;
+            color: var(--primary);
         }
 
+        /* HERO SECTION */
         .hero {
-            background: #34495e;
-            color: #fff;
-            padding: 100px 0;
+            padding: 100px 0 80px;
             text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            color: #bdc3c7;
+            font-size: 1.15rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        /* SECTION STYLING */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: #1abc9c;
-            margin: 10px auto 0;
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
         }
 
+        /* GRID & CARDS */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
+        /* SKILL CARD */
+        .skill-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
         }
 
-        .project-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(79, 70, 229, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .project-info {
-            padding: 20px;
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .project-info h3 {
+        .skill-card h3 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
 
-        .contact-info {
-            text-align: center;
-            font-size: 1.2rem;
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
         }
 
-        footer {
-            background: #2c3e50;
-            color: #fff;
+        /* PROJECT CARD */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .project-banner {
+            height: 180px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #fae8ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .project-info {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: var(--light-gray);
+            color: var(--gray);
+            border: 1px solid var(--border);
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-box {
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 50px 30px;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            background: #fff;
+            color: var(--gray);
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Kamu bisa menambahkan toggle hamburger JS di masa depan */
+            }
+            .hero {
+                padding: 60px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
+    <!-- Header / Navigasi -->
     <header>
         <div class="container">
             <nav>
-                <h2>Aan Alfiansyah</h2>
+                <a href="#home" class="logo">Aan<span>.dev</span></a>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Keahlian</a></li>
                     <li><a href="#portfolio">Proyek</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
@@ -156,54 +419,101 @@
         </div>
     </header>
 
-    <!-- Banner Utama -->
+    <!-- Hero / Banner Utama -->
     <section id="home" class="hero">
         <div class="container">
-            <h1>Halo, Saya AAN ALFIANSYAH</h1>
-            <p>Seorang Web Developer & Designer</p>
-        </div>
-    </section>
-
-    <!-- Tentang Saya & Keahlian -->
-    <section id="about" class="container">
-        <h2 class="section-title">Keahlian Saya</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>HTML & CSS</h3>
-                <p>Membangun struktur web yang rapi dan desain yang responsif.</p>
+            <div class="badge">
+                <span class="badge-dot"></span> Siap untuk Proyek Baru
             </div>
-            <div class="card">
-                <h3>JavaScript</h3>
-                <p>Membuat halaman website menjadi interaktif dan dinamis.</p>
-            </div>
-            <div class="card">
-                <h3>UI/UX Design</h3>
-                <p>Merancang tampilan aplikasi yang ramah pengguna dan modern.</p>
+            <h1>Halo, Saya <span>Aan Alfiansyah</span></h1>
+            <p>Seorang Web Developer & UI/UX Designer yang berfokus menciptakan pengalaman web yang responsif, modern, dan fungsional.</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn btn-primary">Lihat Portofolio <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-secondary"><i class="fa-regular fa-envelope"></i> Hubungi Saya</a>
             </div>
         </div>
     </section>
 
-    <!-- Hasil Karya / Portofolio -->
-    <section id="portfolio" style="background-color: #eaeded;">
+    <!-- Keahlian -->
+    <section id="about">
         <div class="container">
-            <h2 class="section-title">Proyek Terbaru</h2>
+            <div class="section-header">
+                <h2 class="section-title">Keahlian Utama</h2>
+                <p class="section-subtitle">Teknologi dan keterampilan yang sering saya gunakan.</p>
+            </div>
             <div class="grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+                    <h3>HTML5 & CSS3</h3>
+                    <p>Membangun struktur website yang bersih, modern, dan tata letak responsif di semua perangkat.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+                    <h3>JavaScript</h3>
+                    <p>Menjadikan halaman web interaktif, dinamis, dan terhubung dengan berbagai API modern.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Merancang antarmuka aplikasi yang intuitif, ramah pengguna, dan berstandar tren estetika saat ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio / Hasil Karya -->
+    <section id="portfolio" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proyek Terbaru</h2>
+                <p class="section-subtitle">Beberapa hasil karya terbaik yang pernah saya kerjakan.</p>
+            </div>
+            <div class="grid">
+                <!-- Proyek 1 -->
                 <div class="project-card">
+                    <div class="project-banner">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
                     <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
                         <h3>Website E-Commerce</h3>
-                        <p>Platform toko online dengan fitur keranjang belanja dan pembayaran digital.</p>
+                        <p>Platform toko online dengan keranjang belanja, kalkulasi otomatis, dan integrasi payment gateway.</p>
+                        <a href="#" class="project-link">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Proyek 2 -->
                 <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, #dcfce7 0%, #ccfbf1 100%); color: #059669;">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
                     <div class="project-info">
-                        <h3>Aplikasi Manajemen Tugas</h3>
-                        <p>Alat produktivitas berbasis web untuk mengatur *to-do list* harian.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">LocalStorage</span>
+                        </div>
+                        <h3>Task Management App</h3>
+                        <p>Aplikasi web produktivitas untuk mengelola daftar aktivitas harian dengan status progres visual.</p>
+                        <a href="#" class="project-link">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Proyek 3 -->
                 <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, #ffedd5 0%, #fee2e2 100%); color: #ea580c;">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
                     <div class="project-info">
-                        <h3>Landing Page Bisnis</h3>
-                        <p>Halaman promosi produk dengan konversi tinggi dan optimasi SEO.</p>
+                        <div class="project-tags">
+                            <span class="tag">Landing Page</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <h3>Business Landing Page</h3>
+                        <p>Halaman promosi produk berkonversi tinggi, cepat saat dimuat, dan ramah optimasi SEO.</p>
+                        <a href="#" class="project-link">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -211,17 +521,31 @@
     </section>
 
     <!-- Kontak -->
-    <section id="contact" class="container">
-        <h2 class="section-title">Hubungi Saya</h2>
-        <div class="contact-info">
-            <p>Punya proyek menarik? Mari bekerja sama!</p>
-            <p style="margin-top: 15px; font-weight: bold; color: #1abc9c;">Email: emailanda@contoh.com</p>
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3>Mari Berkolaborasi!</h3>
+                <p>Punya ide menarik atau membutuhkan bantuan pengembangan website? Pintu saya selalu terbuka untuk diskusi.</p>
+                
+                <a href="mailto:emailanda@contoh.com" class="btn btn-primary">
+                    <i class="fa-solid fa-envelope"></i> Kirim Email ke Saya
+                </a>
+
+                <div class="social-links">
+                    <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Kaki Halaman -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Nama Anda. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2026 Aan Alfiansyah. Dibuat dengan passion & modern web tech.</p>
+        </div>
     </footer>
 
 </body>
